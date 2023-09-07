@@ -45,10 +45,3 @@ if count == 1:
 
 if count == 2:
     print(str(count) + " instances of " + str(letter) + " found in " + five_char_word)
-
-
-
-
-
-
-
