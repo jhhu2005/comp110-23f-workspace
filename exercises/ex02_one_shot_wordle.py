@@ -1,8 +1,8 @@
-"""EX02 - One Shot Wordle"""
-__author__= "730664658"
+"""EX02 - One Shot Wordle."""
+__author__ = "730664658"
 
 secret_word: str = "python"
-guess = input (f"What is your {len(secret_word)}-letter guess? ")
+guess = input(f"What is your {len(secret_word)}-letter guess? ")
 guess_idx = 0
 secret_word_idx = 0
 emoji: str = ""
@@ -14,12 +14,12 @@ YELLOW_BOX: str = "\U0001F7E8"
 
 while len(guess) != len(secret_word):
     # Check for if the user's guess is 6 letters
-    guess = input (f"That was not {len(secret_word)} letters! Try again: ")
+    guess = input(f"That was not {len(secret_word)} letters! Try again: ")
    
 
-# Below checks ff user guess is 6 letters then check which letters match
+# Below checks if user guess is 6 letters then check which letters match
 if len(guess) == len(secret_word):
-    #I f user's guess is 6 letters
+    # If user's guess is less than 6 letters
     while guess_idx < len(secret_word):
         exists_anywhere = False 
         # Exists_anywhere = False serves to reset the search
@@ -30,7 +30,8 @@ if len(guess) == len(secret_word):
         else:
             # If letter doesn't exist anywhere, or exists in another index, results in white box or yellow box
             alternate_idx = 0 
-            while exists_anywhere==False and alternate_idx < len(secret_word):
+            # Checks if letter exists anywhere else to append a yellow box
+            while not exists_anywhere and alternate_idx < len(secret_word):
                 if secret_word[alternate_idx] == guess[guess_idx]:
                     exists_anywhere = True
                     emoji += YELLOW_BOX
@@ -44,16 +45,6 @@ if len(guess) == len(secret_word):
 # Prints the new emoji string
 print(emoji)
 if secret_word == guess:
-    print ("Woo! You got it!")
+    print("Woo! You got it!")
 else:
-    print ("Not quite. Play again soon!")    
-
-            
-
-
-   
-
-
-
-
-
+    print("Not quite. Play again soon!")
