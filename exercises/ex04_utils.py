@@ -1,8 +1,12 @@
 """EX04 - Using List Utility Functions!"""
 __author__ = "730664658"
 
-def all (intlist: list[int], givenint: int) -> bool:
+
+def all(intlist: list[int], givenint: int) -> bool:
+    """Looks for all the same int in list."""
     intidx: int = 0
+    if len(intlist) == 0:
+        return False
     while len(intlist) > intidx and len(intlist) > 0:
         if intlist[intidx] == givenint:
             intidx += 1
@@ -10,30 +14,31 @@ def all (intlist: list[int], givenint: int) -> bool:
             return False 
     return True
 
-def max (intlist: list[int]) -> int:
-    maxint: int = 0
+
+def max(intlist: list[int]) -> int:
+    """Looks for the largest int in list."""
+    maxint: int = intlist[0]
     intidx: int = 0
     if len(intlist) == 0:
         raise ValueError("max() arg is an empty List")
     while len(intlist) > intidx:
         if intlist[intidx] > maxint:
-          maxint = intlist[intidx] 
+            maxint = intlist[intidx] 
         intidx += 1
     return maxint
 
-def is_equal (intlist1: list[int], intlist2: list[int]) -> bool:
-    intlist1idx: int = 0
-    intlist2idx: int = 0
-    while intlist1idx < len(intlist1) and intlist2idx < len(intlist2):
-        if intlist1[intlist1idx] == intlist2[intlist2idx]:
-            intlist1idx += 1
-            intlist2idx += 1
-        else: 
+
+def is_equal(intlist1: list[int], intlist2: list[int]) -> bool:
+    """Looks for two lists of ints to be the same in every index."""
+    idx: int = 0
+    if len(intlist1) != len(intlist2):
+        return False
+
+    while idx < len(intlist1):
+        if intlist1[idx] != intlist2[idx]:
             return False
+        idx += 1
     return True
 
-def main():
-    result: str = is_equal([1,0,3], [1,2,3])
-    print (result)
-    
-main()
+
+print(max([-3, -1, -5]))

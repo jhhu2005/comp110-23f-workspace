@@ -19,7 +19,7 @@ def contains_char(main_string: str, search_char: str) -> bool:
 
 
 def emojified(guess: str, secret: str) -> str:
-    """Creates string of emoji."""
+     """Creates string of emoji."""
     assert len(guess) == len(secret)
     emoji: str = ""
     secret_idx: int = 0

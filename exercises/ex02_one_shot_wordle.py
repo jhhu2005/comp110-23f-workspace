@@ -15,7 +15,7 @@ YELLOW_BOX: str = "\U0001F7E8"
 while len(guess) != len(secret_word):
     # Check for if the user's guess is 6 letters
     guess = input(f"That was not {len(secret_word)} letters! Try again: ")
-   
+    
 
 # Below checks if user guess is 6 letters then check which letters match
 if len(guess) == len(secret_word):
